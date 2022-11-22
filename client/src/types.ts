@@ -1,9 +1,5 @@
-export type Note = {
-  message: string;
-  createdAt: Date;
-};
+import { GetUsersQuery } from './graphql/generated';
 
-export type User = {
-  name: string;
-  notes: Note[];
-};
+export type Note = GetUsersQuery['users'][0]['notes'][0];
+
+export type User = GetUsersQuery['users'][0];

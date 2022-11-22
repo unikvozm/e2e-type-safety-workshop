@@ -1,10 +1,9 @@
 import UserDisplay from './components/UserDisplay';
 import { useQuery } from 'urql';
-import { User } from './types';
-import { GetUsers } from './graphql/users.query';
+import { GetUsersDocument } from './graphql/generated';
 
 function App() {
-  const [results] = useQuery<{ users: User[] }>({ query: GetUsers });
+  const [results] = useQuery({ query: GetUsersDocument });
   const { data } = results;
 
   return (
